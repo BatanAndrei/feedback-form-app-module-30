@@ -1,0 +1,10 @@
+.navigation {
+    height: 70px;
+    margin: 20px auto;
+    border-bottom: 1px solid #92c561;
+    max-width: 80%;
+}
+
+.navigation button {
+    margin: 0 10px;
+}

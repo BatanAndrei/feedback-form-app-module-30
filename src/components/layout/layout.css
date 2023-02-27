@@ -1,0 +1,9 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-content {
+    position: relative;
+    min-width: 960px;
+}

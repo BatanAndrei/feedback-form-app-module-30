@@ -1,0 +1,68 @@
+input {
+    height: 30px;
+    padding: 0 5px;
+}
+
+label {
+    display: block;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.form textarea {
+    width: 100%;
+    min-width: 100%;
+    min-height: 70px;
+    padding: 7px 10px;
+    box-sizing: border-box;
+    font-family: Arial, serif;
+}
+
+.form input {
+    width: 100%;
+}
+
+.form label span {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.form label.block {
+    display: block;
+    text-align: left;
+}
+
+.form label.block .text-caption {
+    margin-bottom: 10px;
+}
+
+.inline-label {
+    display: inline-block;
+}
+
+.form-options-group .name-caption {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-option {
+    display: inline-flex;
+    align-items: center;
+}
+
+.form-option label {
+    display: block;
+    margin-bottom: 0;
+}
