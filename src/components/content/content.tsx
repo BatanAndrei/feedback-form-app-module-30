@@ -73,8 +73,6 @@ export const Content = ({ stepsData }: ContentProps) => {
         );
       }) : null}
       <Route path={FINISH_SCREEN_PATH} element={<FinishScreen />} />
-
-      {/*TODO: добавить еще один роутер для обработки всех несуществующих страниц (404)*/}
     </Routes>
   );
 }

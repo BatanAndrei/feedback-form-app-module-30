@@ -19,6 +19,8 @@ describe('test a form with input-text and textarea', function () {
      *
      * функция getFields поможет заполнить пропс "fields" у формы
      */
+
+    expect(true).toEqual(false);
   });
 
   it('should be a form with two labels', function () {
@@ -43,7 +45,7 @@ describe('test a form with input-text and textarea', function () {
      */
 
     const testButton = <button disabled>Click me</button>;
-
+    expect(true).toEqual(false);
   });
 
   it('should be correct form data received from the FooterComponent prop', function () {
