@@ -8,7 +8,14 @@ import { FormContextType, FormDataContextResult, FormDataContextType, FormName }
  * TypeScript подскажет, чего в этом объекте не хватает
  * нужно заполнить объект, с которым вызывается createContext, соответствующими полями
  */
-export const FormDataContext = createContext<FormContextType>({});
+const defaultValue: FormContextType = {
+  saveFormData: () => {},
+  getFormData: () => {},
+  getAllForms: () => {},
+  isIntroFormFilled: () => {}, 
+};
+
+export const FormDataContext = createContext<FormContextType>(defaultValue);
 
 export const FormDataContextWrapper = ({ children }: PropsWithChildren) => {
   const [forms, setFormsData] = useState<FormDataContextType>({});

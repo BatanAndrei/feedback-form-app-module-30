@@ -6,6 +6,9 @@ import { FormDataType } from "../form/form";
 import { useEffect } from "react";
 import { StepDataType } from "../../types";
 import { FinishScreen } from "./finish-screen";
+import { useContext } from "react";
+import { FormDataContext } from "../../context/form-data-context/form-data-context";
+
 
 interface ContentProps {
   stepsData: StepDataType[] | null;
@@ -19,6 +22,7 @@ interface ContentProps {
  */
 
 export const Content = ({ stepsData }: ContentProps) => {
+  //const {} = useContext(FormDataContext)
   const onSave = (index: number, stepData: StepDataType, formData: FormDataType) => {
     /*раскомментировать этот код поможет использование контекста FormDataContext*/
     //saveFormData(stepData.formName, formData);

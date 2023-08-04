@@ -24,10 +24,12 @@ function App() {
   useEffect(() => {
     const load = async () => {
       const result = await loadQuestions();
+      console.log(result)
       setStepsData(result);
     }
+    load();
   }, [])
- 
+  
   return (
     <FormDataContextWrapper>
       <div className="App">
@@ -35,7 +37,7 @@ function App() {
           // TODO
           // значение showLoader должно напрямую зависеть от наличия данных в стейте stepsData
           // как только данные в стейт stepsData появляются, лоадер должен исчезать
-          showLoader={true}
+          showLoader={!stepsData ? true : false}
           HeaderComponent={<Header />}
           NavComponent={<Navigation />}
           ContentComponent={<Content stepsData={stepsData} />}

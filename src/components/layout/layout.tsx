@@ -15,6 +15,7 @@ export interface LayoutProps {
  * чтобы компонент Layout заработал корректно
  */
 export const Layout = (props: LayoutProps) => {
+  
   return (
     <div className="layout">
       <div className="header" />
@@ -22,7 +23,7 @@ export const Layout = (props: LayoutProps) => {
       <div className="nav" />
 
       <div className="layout-content">
-        <Loader isActive={true} />
+        <Loader isActive={props.showLoader} />
 
         <div className="layout-content-inner" />
       </div>
