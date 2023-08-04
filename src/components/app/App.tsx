@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout } from "../layout/layout";
 import { Navigation } from "../navigation/navigation";
 import { Content } from "../content/content";
@@ -21,11 +21,13 @@ import './App.css';
 function App() {
   const [stepsData, setStepsData] = useState<StepDataType[] | null>(null);
 
-  const load = async () => {
-    const result = await loadQuestions();
-    setStepsData(result);
-  }
-
+  useEffect(() => {
+    const load = async () => {
+      const result = await loadQuestions();
+      setStepsData(result);
+    }
+  }, [])
+ 
   return (
     <FormDataContextWrapper>
       <div className="App">
