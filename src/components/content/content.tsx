@@ -21,11 +21,13 @@ interface ContentProps {
  * это позволит использовать весь закомментированный код и восстановить работу приложения
  */
 
+
 export const Content = ({ stepsData }: ContentProps) => {
-  //const {} = useContext(FormDataContext)
+  const {saveFormData, getFormData} = useContext(FormDataContext);
+ 
   const onSave = (index: number, stepData: StepDataType, formData: FormDataType) => {
     /*раскомментировать этот код поможет использование контекста FormDataContext*/
-    //saveFormData(stepData.formName, formData);
+    saveFormData(stepData.formName, formData);
 
     let path = FINISH_SCREEN_PATH;
 
@@ -68,7 +70,7 @@ export const Content = ({ stepsData }: ContentProps) => {
               <StepComponent
                 step={step}
                 /*раскомментировать этот код поможет использование контекста FormDataContext*/
-                // initialValues={getFormData(stepData.formName)}
+                initialValues={getFormData(stepData.formName)}
                 formFields={stepData.fields}
                 onSave={(formData) => onSave(index, stepData, formData)}
               />

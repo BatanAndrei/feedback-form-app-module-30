@@ -10,14 +10,15 @@ import { FormContextType, FormDataContextResult, FormDataContextType, FormName }
  */
 const defaultValue: FormContextType = {
   saveFormData: () => {},
-  getFormData: () => {},
-  getAllForms: () => {},
-  isIntroFormFilled: () => {}, 
+  getFormData: () => {return undefined},
+  getAllForms: () => {return []},         //????? правильно ли возвращать пустой массив
+  isIntroFormFilled: () => { return false}, 
 };
 
 export const FormDataContext = createContext<FormContextType>(defaultValue);
 
 export const FormDataContextWrapper = ({ children }: PropsWithChildren) => {
+  
   const [forms, setFormsData] = useState<FormDataContextType>({});
 
   const saveFormData = (name: FormName, data: FormDataType) => {
@@ -30,7 +31,8 @@ export const FormDataContextWrapper = ({ children }: PropsWithChildren) => {
   };
 
   const getAllForms = (): FormDataContextResult => {
-    return Array.from(Object.entries(forms));
+    return []
+    //return Array.from(Object.entries(forms));
   }
 
   const isIntroFormFilled = (): boolean => {
