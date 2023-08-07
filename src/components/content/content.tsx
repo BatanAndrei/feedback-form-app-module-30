@@ -1,5 +1,5 @@
 import { FINISH_SCREEN_PATH, STEPS } from "../../const";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { StepComponent } from "./step";
 import { MainScreen } from "./main-screen";
 import { FormDataType } from "../form/form";
@@ -23,7 +23,9 @@ interface ContentProps {
 
 
 export const Content = ({ stepsData }: ContentProps) => {
-  const {saveFormData, getFormData} = useContext(FormDataContext);
+  const {saveFormData, getFormData, isIntroFormFilled} = useContext(FormDataContext);
+  const navigate = useNavigate();
+  const {pathname} = useLocation();
  
   const onSave = (index: number, stepData: StepDataType, formData: FormDataType) => {
     /*раскомментировать этот код поможет использование контекста FormDataContext*/
@@ -34,14 +36,14 @@ export const Content = ({ stepsData }: ContentProps) => {
     if (index < STEPS.length - 1) {
       path = STEPS[index + 1].path;
     }
-
+    navigate(path)
     //TODO: с помощью навигации из React Router перейти на "path", в этой переменной уже лежит нужная часть URL
   }
 
   const checkIntroForm = () => {
-    /*if (!isIntroFormFilled() && pathname !== "/") {
+    if (!isIntroFormFilled() && pathname !== "/") {
       //TODO: с помощью навигации из React Router перейти на "/" (начальный экран)
-    }*/
+    }
   }
 
   useEffect(() => {

@@ -14,18 +14,18 @@ export interface LayoutProps {
  * извлеките все недостающие пропсы и расставьте их по нужным местам,
  * чтобы компонент Layout заработал корректно
  */
-export const Layout = (props: LayoutProps) => {
+export const Layout = ({ showLoader, HeaderComponent, NavComponent, ContentComponent }: LayoutProps) => {
   
   return (
     <div className="layout">
-      <div className="header" />
+      <div className="header">{HeaderComponent}</div>
 
-      <div className="nav" />
+      <div className="nav">{NavComponent}</div>
 
       <div className="layout-content">
-        <Loader isActive={props.showLoader} />
+        <Loader isActive={showLoader} />
 
-        <div className="layout-content-inner" />
+        <div className="layout-content-inner">{ContentComponent}</div>
       </div>
     </div>
   );

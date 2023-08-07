@@ -7,6 +7,8 @@ import { Header } from "../header/header";
 import { loadQuestions } from "../../api/questions-api";
 import { StepDataType } from "../../types";
 import './App.css';
+import { BroadcastChannel } from 'worker_threads';
+import { BrowserRouter } from 'react-router-dom';
 
 //TODO
 /**
@@ -31,19 +33,21 @@ function App() {
   }, [])
   
   return (
-    <FormDataContextWrapper>
-      <div className="App">
-        <Layout
-          // TODO
-          // значение showLoader должно напрямую зависеть от наличия данных в стейте stepsData
-          // как только данные в стейт stepsData появляются, лоадер должен исчезать
-          showLoader={!stepsData ? true : false}
-          HeaderComponent={<Header />}
-          NavComponent={<Navigation />}
-          ContentComponent={<Content stepsData={stepsData} />}
-        />
-      </div>
-    </FormDataContextWrapper>
+    <BrowserRouter>
+      <FormDataContextWrapper>
+        <div className="App">
+          <Layout
+            // TODO
+            // значение showLoader должно напрямую зависеть от наличия данных в стейте stepsData
+            // как только данные в стейт stepsData появляются, лоадер должен исчезать
+            showLoader={!stepsData}
+            HeaderComponent={<Header />}
+            NavComponent={<Navigation />}
+            ContentComponent={<Content stepsData={stepsData} />}
+          />
+        </div>
+      </FormDataContextWrapper>
+    </BrowserRouter>
   );
 }
 
