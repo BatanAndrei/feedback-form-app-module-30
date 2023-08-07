@@ -9,6 +9,13 @@ describe('test a form with input-text and textarea', function () {
   }
 
   it('should be a form with two inputs', function () {
+    const { getByTestId } = render(<Form fields={getFields()} FooterComponent={jest.fn()} />);
+
+    const input = getByTestId('0');
+    const textarea = getByTestId('1');
+    
+    expect(input).toBeVisible();
+    expect(textarea).toBeVisible();
     //TODO
     /**
      * назначение этого теста: проверить наличие input и textarea в форме
@@ -20,7 +27,7 @@ describe('test a form with input-text and textarea', function () {
      * функция getFields поможет заполнить пропс "fields" у формы
      */
 
-    expect(true).toEqual(false);
+    //expect(true).toEqual(false);
   });
 
   it('should be a form with two labels', function () {
@@ -43,9 +50,15 @@ describe('test a form with input-text and textarea', function () {
      *
      * функция getFields поможет заполнить пропс "fields" у формы
      */
-
     const testButton = <button disabled>Click me</button>;
-    expect(true).toEqual(false);
+
+    const { getByText } = render(<Form fields={getFields()} FooterComponent={() => testButton} />);
+
+    const renderButton = getByText('Click me');
+
+    expect(renderButton).toBeVisible();
+    expect(renderButton).toBeDisabled();
+    //expect(true).toEqual(false);
   });
 
   it('should be correct form data received from the FooterComponent prop', function () {
